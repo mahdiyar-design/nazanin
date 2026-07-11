@@ -3,293 +3,283 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>تاپ شاپ · فروشگاه خفن</title>
-  <!-- Font Awesome -->
+  <title>شاپ خفن · لوکس</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', 'Tahoma', system-ui, sans-serif;
+      font-family: 'Segoe UI', 'Poppins', system-ui, sans-serif;
     }
 
     body {
-      background: #f5f7fc;
-      color: #1a1e2b;
-      padding: 1.5rem;
+      background: linear-gradient(145deg, #0b0f1a 0%, #1a1f30 100%);
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 2rem;
     }
 
-    .store-container {
+    .glass-container {
       max-width: 1300px;
       width: 100%;
-      background: #ffffff;
-      border-radius: 2.5rem;
-      box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.15);
-      padding: 2rem 2rem 2.5rem;
-      transition: all 0.2s ease;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-radius: 4rem;
+      padding: 2.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
     }
 
-    /* هدر */
-    .header {
+    /* هدر طلایی */
+    .gold-header {
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255, 215, 0, 0.15);
+      flex-wrap: wrap;
       gap: 1.2rem;
     }
 
-    .logo h1 {
-      font-size: 2.2rem;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .brand h1 {
+      font-size: 2.8rem;
       font-weight: 800;
-      background: linear-gradient(135deg, #0b1e42, #2b3f6b);
+      background: linear-gradient(135deg, #f6e27a, #d4af37, #f6e27a);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      letter-spacing: -0.5px;
+      letter-spacing: -1px;
+      text-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
     }
 
-    .logo span {
-      font-weight: 300;
-      font-size: 0.9rem;
-      background: #eef2ff;
-      padding: 0.2rem 1rem;
-      border-radius: 40px;
-      -webkit-text-fill-color: #1f2a4e;
-      margin-right: 0.6rem;
+    .brand i {
+      font-size: 2.5rem;
+      color: #d4af37;
+      filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.3));
     }
 
-    .cart-icon {
-      position: relative;
-      background: #f0f4ff;
-      padding: 0.7rem 1.2rem;
+    .cart-gold {
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      padding: 0.8rem 1.8rem;
       border-radius: 60px;
-      font-size: 1.5rem;
-      color: #121b3a;
-      box-shadow: 0 4px 10px rgba(0, 20, 50, 0.04);
-      cursor: pointer;
-      transition: 0.2s;
+      color: #f6e27a;
+      font-size: 1.3rem;
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.8rem;
+      backdrop-filter: blur(4px);
+      transition: 0.3s;
     }
 
-    .cart-icon:hover {
-      background: #e2eaff;
+    .cart-gold:hover {
+      background: rgba(212, 175, 55, 0.2);
       transform: scale(1.02);
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
     }
 
-    .cart-badge {
-      background: #b22234;
-      color: #fff;
-      font-size: 0.8rem;
+    .badge-gold {
+      background: #d4af37;
+      color: #0b0f1a;
       font-weight: 700;
-      padding: 0.15rem 0.6rem;
-      border-radius: 30px;
-      margin-right: 0.2rem;
-    }
-
-    /* جستجو */
-    .search-bar {
-      display: flex;
-      background: #f2f5fd;
-      border-radius: 60px;
-      padding: 0.2rem 0.2rem 0.2rem 1.5rem;
-      align-items: center;
-      border: 1px solid #e9edf8;
-      transition: 0.2s;
-      flex: 1 1 260px;
-      min-width: 200px;
-    }
-
-    .search-bar:focus-within {
-      border-color: #2c3f77;
-      box-shadow: 0 0 0 4px rgba(44, 63, 119, 0.08);
-      background: #ffffff;
-    }
-
-    .search-bar input {
-      border: none;
-      background: transparent;
-      padding: 0.7rem 0.2rem;
-      font-size: 0.95rem;
-      width: 100%;
-      outline: none;
-      color: #141b30;
-    }
-
-    .search-bar button {
-      background: #1b2748;
-      border: none;
-      color: white;
-      padding: 0.6rem 1.4rem;
-      border-radius: 50px;
-      font-weight: 600;
+      padding: 0.1rem 0.8rem;
+      border-radius: 40px;
       font-size: 0.9rem;
+    }
+
+    /* سرچ شیشه‌ای */
+    .search-glass {
+      display: flex;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 80px;
+      padding: 0.2rem 0.2rem 0.2rem 1.8rem;
+      align-items: center;
+      margin: 2rem 0 2.5rem;
+      backdrop-filter: blur(8px);
+      transition: 0.3s;
+    }
+
+    .search-glass:focus-within {
+      border-color: rgba(212, 175, 55, 0.3);
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.03);
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .search-glass input {
+      background: transparent;
+      border: none;
+      padding: 0.9rem 0.2rem;
+      width: 100%;
+      color: #e8e6f0;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .search-glass input::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+      font-weight: 300;
+    }
+
+    .search-glass button {
+      background: linear-gradient(135deg, #d4af37, #b8962c);
+      border: none;
+      color: #0b0f1a;
+      padding: 0.7rem 2rem;
+      border-radius: 60px;
+      font-weight: 700;
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.6rem;
       cursor: pointer;
-      transition: 0.2s;
+      transition: 0.3s;
     }
 
-    .search-bar button:hover {
-      background: #0e1733;
-      transform: scale(0.97);
+    .search-glass button:hover {
+      transform: scale(0.96);
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
     }
 
-    /* فیلترها */
-    .filter-row {
+    /* فیلترهای شیشه‌ای */
+    .filter-lux {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.7rem 1rem;
-      margin: 1.8rem 0 2.2rem;
-      align-items: center;
+      gap: 0.8rem 1.2rem;
+      margin-bottom: 2.8rem;
     }
-
-    .filter-btn {
-      background: #f0f4fe;
-      border: none;
-      padding: 0.5rem 1.4rem;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      color: #1e2745;
+    .filter-lux button {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 0.6rem 1.8rem;
+      border-radius: 60px;
+      color: #b8bdd0;
+      font-weight: 500;
+      font-size: 0.9rem;
+      backdrop-filter: blur(4px);
       cursor: pointer;
-      transition: 0.15s;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-    }
-
-    .filter-btn.active {
-      background: #1b2748;
-      color: #fff;
-      box-shadow: 0 8px 14px -6px rgba(23, 40, 80, 0.3);
-    }
-
-    .filter-btn:hover {
-      background: #dce3f5;
-    }
-
-    .filter-btn.active:hover {
-      background: #111d3b;
-    }
-    /* محصولات */
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1.8rem;
-      margin-top: 0.5rem;
-    }
-
-    .product-card {
-      background: #ffffff;
-      border-radius: 1.8rem;
-      padding: 1.5rem 1rem 1.2rem;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(0, 10, 30, 0.03);
-      transition: all 0.25s ease;
-      border: 1px solid #f0f4fe;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      backdrop-filter: blur(2px);
-    }
-
-    .product-card:hover {
-      transform: translateY(-8px);
-      border-color: #cdd9f5;
-      box-shadow: 0 18px 30px -12px rgba(26, 45, 90, 0.12);
-    }
-
-    .product-image {
-      font-size: 3.8rem;
-      margin-bottom: 0.3rem;
-      background: #f4f8ff;
-      width: 100%;
-      padding: 0.8rem 0;
-      border-radius: 80px;
       transition: 0.2s;
     }
 
-    .product-card h3 {
-      font-size: 1.1rem;
-      margin: 0.6rem 0 0.1rem;
-      font-weight: 700;
-      color: #121b36;
+    .filter-lux button.active {
+      background: rgba(212, 175, 55, 0.15);
+      border-color: #d4af37;
+      color: #f6e27a;
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.05);
     }
 
-    .product-desc {
-      font-size: 0.8rem;
-      color: #5b6787;
-      margin: 0.15rem 0 0.4rem;
+    .filter-lux button:hover {
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
     }
 
-    .product-price {
-      font-weight: 700;
+    /* گرید محصولات لوکس */
+    .product-grid-lux {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 2rem;
+      margin: 1.5rem 0 3rem;
+    }
+
+    .card-lux {
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 2.5rem;
+      padding: 1.8rem 1rem 1.5rem;
+      text-align: center;
+      transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.3);
+    }
+
+    .card-lux:hover {
+      transform: translateY(-12px) scale(1.01);
+      border-color: rgba(212, 175, 55, 0.2);
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 30px 50px -15px rgba(0,0,0,0.6), 0 0 40px rgba(212, 175, 55, 0.02);
+    }
+
+    .card-lux .emoji-big {
+      font-size: 4.5rem;
+      margin-bottom: 0.2rem;
+      filter: drop-shadow(0 8px 12px rgba(0,0,0,0.3));
+    }
+
+    .card-lux h3 {
+      color: #f0edf7;
+      font-weight: 600;
       font-size: 1.2rem;
-      color: #1b2a4e;
-      margin: 0.3rem 0 0.8rem;
+      margin: 0.6rem 0 0.1rem;
     }
 
-    .product-price small {
-      font-weight: 400;
+    .card-lux .desc {
+      color: #8b8fa8;
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+
+    .card-lux .price-gold {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #d4af37;
+      margin: 0.5rem 0 0.9rem;
+      letter-spacing: 0.5px;
+    }
+
+    .card-lux .price-gold small {
       font-size: 0.7rem;
-      color: #6f7b9b;
-      margin-right: 0.2rem;
+      color: #8b8fa8;
+      font-weight: 300;
     }
 
-    .add-btn {
-      background: #1b2748;
+    .btn-gold {
+      background: linear-gradient(135deg, #d4af37, #b8962c);
       border: none;
-      color: white;
       padding: 0.6rem 1.2rem;
       border-radius: 60px;
-      font-weight: 600;
-      font-size: 0.8rem;
+      font-weight: 700;
+      color: #0b0f1a;
       width: 100%;
-      max-width: 140px;
+      max-width: 150px;
       cursor: pointer;
-      transition: 0.2s;
-      display: flex;
+      transition: 0.25s;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.3rem;
+      gap: 0.4rem;
+      font-size: 0.85rem;
     }
 
-    .add-btn:hover {
-      background: #121d3a;
-      transform: scale(0.96);
-      box-shadow: 0 8px 14px -6px #1b274866;
+    .btn-gold:hover {
+      transform: scale(0.94);
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
     }
 
-    .add-btn:active {
-      transform: scale(0.92);
-    }
-
-    .add-btn i {
-      font-size: 0.8rem;
-    }
-
-    /* سبد خرید */
-    .cart-section {
-      margin-top: 3rem;
-      background: #fafcff;
-      border-radius: 2rem;
-      padding: 1.4rem 1.8rem;
-      border: 1px solid #eef3fe;
+    /* سبد خرید طلایی */
+    .cart-lux {
+      margin-top: 2.5rem;
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 3rem;
+      padding: 1.5rem 2rem;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      gap: 1rem;
+      gap: 1.2rem;
     }
 
-    .cart-items-list {
+    .cart-lux-items {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -297,290 +287,192 @@
       flex: 2;
     }
 
-    .cart-item-badge {
-      background: #e8efff;
-      padding: 0.3rem 1rem 0.3rem 0.9rem;
-      border-radius: 50px;
+    .cart-lux-item {
+      background: rgba(212, 175, 55, 0.08);
+      border: 1px solid rgba(212, 175, 55, 0.08);
+      padding: 0.3rem 1rem 0.3rem 0.8rem;
+      border-radius: 60px;
+      color: #e0dccf;
       font-size: 0.85rem;
-      font-weight: 500;
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      color: #101b38;
     }
 
-    .cart-item-badge i {
+    .cart-lux-item i {
+      color: #d4af37;
       cursor: pointer;
-      color: #b22234;
-      font-size: 0.8rem;
-      transition: 0.15s;
+      transition: 0.2s;
     }
 
-    .cart-item-badge i:hover {
+    .cart-lux-item i:hover {
+      color: #ffd966;
       transform: scale(1.3);
-      color: #a0001e;
     }
 
-    .cart-total {
+    .total-gold {
+      background: rgba(212, 175, 55, 0.08);
+      padding: 0.4rem 1.8rem;
+      border-radius: 60px;
+      color: #f6e27a;
       font-weight: 700;
       font-size: 1.2rem;
-      color: #0b1633;
-      background: #e6edfe;
-      padding: 0.4rem 1.6rem;
-      border-radius: 60px;
+      border: 1px solid rgba(212, 175, 55, 0.1);
       display: flex;
       align-items: center;
       gap: 0.6rem;
     }
-
-    .clear-cart {
+    .btn-clear-gold {
       background: transparent;
-      border: 1px solid #cfdbf5;
-      padding: 0.4rem 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 0.4rem 1.4rem;
       border-radius: 60px;
-      color: #1f2c4f;
-      font-weight: 600;
+      color: #a8adc5;
+      font-weight: 500;
       cursor: pointer;
-      transition: 0.15s;
-      font-size: 0.85rem;
+      transition: 0.2s;
     }
 
-    .clear-cart:hover {
-      background: #f0f4fe;
-      border-color: #a5b7dd;
+    .btn-clear-gold:hover {
+      background: rgba(255, 50, 50, 0.05);
+      border-color: rgba(255, 80, 80, 0.15);
+      color: #ffb3b3;
     }
 
-    .empty-cart-msg {
-      color: #7380a3;
-      font-weight: 400;
-      padding: 0.3rem 0;
+    .empty-lux {
+      color: #6a708a;
+      font-weight: 300;
+    }
+
+    /* محصول ویژه */
+    .featured-badge {
+      background: rgba(212, 175, 55, 0.15);
+      border: 1px solid #d4af37;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      color: #d4af37;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      display: inline-block;
+      margin-bottom: 0.3rem;
     }
 
     @media (max-width: 600px) {
-      .store-container { padding: 1.5rem 1rem; }
-      .logo h1 { font-size: 1.6rem; }
-        .cart-icon { padding: 0.5rem 1rem; }
-      .products-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+      .glass-container { padding: 1.5rem; }
+      .brand h1 { font-size: 2rem; }
+      .product-grid-lux { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
     }
   </style>
 </head>
 <body>
-<div class="store-container">
-  <!-- هدر -->
-  <div class="header">
-    <div class="logo">
-      <h1>🛍️ تاپ‌شاپ <span>پرفروش‌ها</span></h1>
+<div class="glass-container">
+  <!-- هدر طلایی -->
+  <div class="gold-header">
+    <div class="brand">
+      <i class="fas fa-crown"></i>
+      <h1>شاپ خفن</h1>
     </div>
-    <div class="cart-icon" id="cartIcon">
+    <div class="cart-gold">
       <i class="fas fa-shopping-bag"></i>
-      <span class="cart-badge" id="cartCount">0</span>
+      <span class="badge-gold">۳</span>
     </div>
   </div>
 
-  <!-- جستجو -->
-  <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="جستجوی محصول ...">
-    <button id="searchBtn"><i class="fas fa-search"></i> بیاب</button>
+  <!-- سرچ -->
+  <div class="search-glass">
+    <input type="text" placeholder="دنبال چی میگردی؟">
+    <button><i class="fas fa-search"></i> پیدا کن</button>
   </div>
 
-  <!-- فیلترهای دسته‌بندی -->
-  <div class="filter-row" id="filterRow">
-    <button class="filter-btn active" data-category="all">همه</button>
-    <button class="filter-btn" data-category="گوشی">📱 گوشی</button>
-    <button class="filter-btn" data-category="لپ‌تاپ">💻 لپ‌تاپ</button>
-    <button class="filter-btn" data-category="هدفون">🎧 هدفون</button>
-    <button class="filter-btn" data-category="ساعت">⌚ ساعت</button>
+  <!-- فیلترها -->
+  <div class="filter-lux">
+    <button class="active">همه</button>
+    <button>📱 گوشی</button>
+    <button>💻 لپ‌تاپ</button>
+    <button>🎧 هدفون</button>
+    <button>⌚ ساعت</button>
   </div>
 
   <!-- محصولات -->
-  <div class="products-grid" id="productGrid"></div>
+  <div class="product-grid-lux">
+    <!-- محصول ۱ -->
+    <div class="card-lux">
+      <div class="emoji-big">📱</div>
+      <h3>آیفون ۱۶ پرو مکس</h3>
+      <div class="desc">تراشه A18</div>
+      <div class="price-gold">۵۸,۰۰۰,۰۰۰ <small>تومان</small></div>
+      <button class="btn-gold"><i class="fas fa-plus-circle"></i> افزودن</button>
+    </div>
+    <!-- محصول ۲ -->
+    <div class="card-lux">
+      <div class="emoji-big">📱</div>
+      <h3>سامسونگ گلکسی S25</h3>
+      <div class="desc">دوربین ۲۵۰ مگ</div>
+      <div class="price-gold">۴۲,۰۰۰,۰۰۰ <small>تومان</small></div>
+      <button class="btn-gold"><i class="fas fa-plus-circle"></i> افزودن</button>
+    </div>
+    <!-- محصول ۳ -->
+    <div class="card-lux">
+      <div class="emoji-big">💻</div>
+      <h3>مک بوک ایر M4</h3>
+      <div class="desc">فوق باریک</div>
+      <div class="price-gold">۹۵,۰۰۰,۰۰۰ <small>تومان</small></div>
+      <button class="btn-gold"><i class="fas fa-plus-circle"></i> افزودن</button>
+    </div>
+    <!-- محصول ۴ -->
+    <div class="card-lux">
+      <div class="emoji-big">💻</div>
+      <h3>راگ لپ‌تاپ گیمینگ</h3>
+      <div class="desc">RTX 5090</div>
+      <div class="price-gold">۱۲۰,۰۰۰,۰۰۰ <small>تومان</small></div>
+      <button class="btn-gold"><i class="fas fa-plus-circle"></i> افزودن</button>
+    </div>
+    <!-- محصول ۵ -->
+    <div class="card-lux">
+      <div class="emoji-big">🎧</div>
+      <h3>سونی WH-1000XM6</h3>
+      <div class="desc">حذف نویز پیشرفته</div>
+      <div class="price-gold">۲۲,۰۰۰,۰۰۰ <small>تومان</small></div>
+      <button class="btn-gold"><i class="fas fa-plus-circle"></i> افزودن</button>
+    </div>
+    <!-- محصول ۶ -->
+    <div class="card-lux">
+      <div class="emoji-big">🎧</div>
+      <h3>بیس مدل بوست</h3>
+      <div class="desc">بیس کوبنده</div>
+      <div class="price-gold">۱۶,۵۰۰,۰۰۰ <small>تومان</small></div>
+      <button class="btn-gold"><i class="fas fa-plus-circle"></i> افزودن</button>
+    </div>
+    <!-- محصول ۷ -->
+    <div class="card-lux">
+      <div class="emoji-big">⌚</div>
+      <h3>اپل واچ اولترا ۲</h3>
+      <div class="desc">تیتانیوم مشکی</div>
+      <div class="price-gold">۴۳,۰۰۰,۰۰۰ <small>تومان</small></div>
+      <button class="btn-gold"><i class="fas fa-plus-circle"></i> افزودن</button>
+    </div>
+    <!-- محصول ۸ -->
+    <div class="card-lux">
+      <div class="emoji-big">⌚</div>
+      <h3>گارمین فنیکس ۸</h3>
+      <div class="desc">نقشه‌برداری ماهواره</div>
+      <div class="price-gold">۳۲,۰۰۰,۰۰۰ <small>تومان</small></div>
+      <button class="btn-gold"><i class="fas fa-plus-circle"></i> افزودن</button>
+    </div>
+  </div>
 
   <!-- سبد خرید -->
-  <div class="cart-section">
-    <div class="cart-items-list" id="cartItemsList">
-      <span class="empty-cart-msg"><i class="fas fa-box-open"></i> سبد خالی است</span>
+  <div class="cart-lux">
+    <div class="cart-lux-items">
+      <span class="cart-lux-item">📱 آیفون ۱۶ (۲) <i class="fas fa-times-circle"></i></span>
+      <span class="cart-lux-item">💻 مک بوک ایر (۱) <i class="fas fa-times-circle"></i></span>
     </div>
     <div style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
-      <div class="cart-total"><i class="fas fa-credit-card"></i> <span id="totalPrice">۰</span> تومان</div>
-      <button class="clear-cart" id="clearCartBtn"><i class="fas fa-trash-alt"></i> خالی کن</button>
+      <div class="total-gold"><i class="fas fa-coins"></i> ۱۵۳,۰۰۰,۰۰۰</div>
+      <button class="btn-clear-gold"><i class="fas fa-trash-alt"></i> خالی</button>
     </div>
   </div>
 </div>
-
-<script>
-  (function() {
-    // ---- داده محصولات ----
-    const products = [
-      { id: 1, name: "آیفون ۱۵ پرو", category: "گوشی", price: 48500000, emoji: "📱", desc: "تراشه A17" },
-      { id: 2, name: "سامسونگ S24", category: "گوشی", price: 37200000, emoji: "📱", desc: "دوربین ۲۰۰ مگاپیکسل" },
-      { id: 3, name: "مک‌بوک پرو ۱۶", category: "لپ‌تاپ", price: 128000000, emoji: "💻", desc: "M3 Max" },
-      { id: 4, name: "ایسوس زن‌بوک", category: "لپ‌تاپ", price: 65300000, emoji: "💻", desc: "OLED 4K" },
-      { id: 5, name: "سونی WH-1000XM5", category: "هدفون", price: 18900000, emoji: "🎧", desc: "حذف نویز" },
-      { id: 6, name: "بیس مدل QC45", category: "هدفون", price: 14200000, emoji: "🎧", desc: "بیس فوق‌العاده" },
-      { id: 7, name: "اپل واچ اولترا", category: "ساعت", price: 39600000, emoji: "⌚", desc: "تیتانیوم" },
-      { id: 8, name: "گارمین فنیکس ۷", category: "ساعت", price: 28400000, emoji: "⌚", desc: "GPS پیشرفته" },
-      { id: 9, name: "گوگل پیکسل ۸", category: "گوشی", price: 31000000, emoji: "📱", desc: "اندروید خالص" },
-      { id: 10, name: "دل ایکس‌پی‌اس ۱۵", category: "لپ‌تاپ", price: 74500000, emoji: "💻", desc: "گرافیک RTX" },
-    ];
-
-    // ---- state ----
-    let cart = [];                // [{ id, name, price, emoji, quantity }]
-    let activeCategory = "all";
-    let searchQuery = "";
-
-    // DOM refs
-    const grid = document.getElementById('productGrid');
-    const cartItemsList = document.getElementById('cartItemsList');
-    const cartCountSpan = document.getElementById('cartCount');
-    const totalPriceSpan = document.getElementById('totalPrice');
-    const searchInput = document.getElementById('searchInput');
-    const searchBtn = document.getElementById('searchBtn');
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const clearCartBtn = document.getElementById('clearCartBtn');
-
-    // ---- helper ----
-    function formatPrice(num) {
-      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
-
-    // ---- رندر محصولات ----
-    function renderProducts() {
-      const filtered = products.filter(p => {
-        const matchCategory = activeCategory === "all" || p.category === activeCategory;
-        const matchSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                            p.category.includes(searchQuery);
-        return matchCategory && matchSearch;
-      });
-        if (filtered.length === 0) {
-        grid.innerHTML = <div style="grid-column:1/-1; text-align:center; padding:2.5rem; color:#6f7d9e;">⛔ محصولی پیدا نشد</div>;
-        return;
-      }
-
-      grid.innerHTML = filtered.map(p => {
-        const inCart = cart.find(item => item.id === p.id);
-        const btnText = inCart ? '✔️ افزوده' : 'افزودن';
-        return 
-          <div class="product-card" data-id="${p.id}">
-            <div class="product-image">${p.emoji}</div>
-            <h3>${p.name}</h3>
-            <div class="product-desc">${p.desc}</div>
-            <div class="product-price">${formatPrice(p.price)} <small>تومان</small></div>
-            <button class="add-btn" data-id="${p.id}"><i class="fas fa-plus-circle"></i> ${btnText}</button>
-          </div>
-        ;
-      }).join('');
-
-      // attach event listeners به دکمه‌های افزودن (delegation روی grid)
-      // اما بهتر از delegation استفاده کنیم
-    }
-
-    // ---- رندر سبد خرید ----
-    function renderCart() {
-      // نمایش آیتم‌ها
-      if (cart.length === 0) {
-        cartItemsList.innerHTML = <span class="empty-cart-msg"><i class="fas fa-box-open"></i> سبد خالی است</span>;
-      } else {
-        cartItemsList.innerHTML = cart.map(item => 
-          <span class="cart-item-badge">
-            ${item.emoji} ${item.name} (${item.quantity})
-            <i class="fas fa-times-circle" data-id="${item.id}" style="cursor:pointer;"></i>
-          </span>
-        ).join('');
-
-        // حذف هر آیتم با کلیک روی آیکون ×
-        document.querySelectorAll('.cart-item-badge i.fa-times-circle').forEach(icon => {
-          icon.addEventListener('click', function(e) {
-            e.stopPropagation();
-            const id = parseInt(this.dataset.id);
-            removeFromCart(id);
-          });
-        });
-      }
-
-      // آپدیت تعداد و قیمت
-      const totalItems = cart.reduce((acc, i) => acc + i.quantity, 0);
-      cartCountSpan.textContent = totalItems;
-
-      const totalPrice = cart.reduce((acc, i) => acc + (i.price * i.quantity), 0);
-      totalPriceSpan.textContent = formatPrice(totalPrice);
-    }
-
-    // ---- عملیات سبد ----
-    function addToCart(productId) {
-      const product = products.find(p => p.id === productId);
-      if (!product) return;
-
-      const existing = cart.find(item => item.id === productId);
-      if (existing) {
-        existing.quantity += 1;
-      } else {
-        cart.push({
-          id: product.id,
-          name: product.name,
-          price: product.price,
-          emoji: product.emoji,
-          quantity: 1
-        });
-      }
-      renderCart();
-      renderProducts(); // به‌روزرسانی دکمه‌ها
-    }
-
-    function removeFromCart(productId) {
-      const existing = cart.find(item => item.id === productId);
-      if (!existing) return;
-
-      if (existing.quantity > 1) {
-        existing.quantity -= 1;
-      } else {
-        cart = cart.filter(item => item.id !== productId);
-      }
-      renderCart();
-      renderProducts();
-    }
-
-    function clearCart() {
-      cart = [];
-      renderCart();
-      renderProducts();
-    }
-
-    // ---- رویدادها (delegation) ----
-    grid.addEventListener('click', function(e) {
-      const btn = e.target.closest('.add-btn');
-      if (!btn) return;
-      const id = parseInt(btn.dataset.id);
-      addToCart(id);
-    });
-
-    // جستجو
-    function performSearch() {
-      searchQuery = searchInput.value.trim();
-      renderProducts();
-    }
-
-    searchBtn.addEventListener('click', performSearch);
-    searchInput.addEventListener('keyup', function(e) {
-      if (e.key === 'Enter') performSearch();
-    });
-
-    // فیلترها
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', function() {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        activeCategory = this.dataset.category;
-        renderProducts();
-      });
-    });
-
-    // خالی کردن سبد
-    clearCartBtn.addEventListener('click', clearCart);
-
-    // ---- مقداردهی اولیه ----
-    renderProducts();
-    renderCart();
-  })();
-</script>
 </body>
 </html>
