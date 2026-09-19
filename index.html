@@ -1,478 +1,539 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fa" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>شاپ خفن · لوکس</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', 'Poppins', system-ui, sans-serif;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    body {
-      background: linear-gradient(145deg, #0b0f1a 0%, #1a1f30 100%);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-    }
+    <title>برای نازنینه ❤️</title>
 
-    .glass-container {
-      max-width: 1300px;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border-radius: 4rem;
-      padding: 2.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-    }
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    /* هدر طلایی */
-    .gold-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid rgba(255, 215, 0, 0.15);
-      flex-wrap: wrap;
-      gap: 1.2rem;
-    }
+      body {
+        font-family: Tahoma, sans-serif;
+        min-height: 100vh;
+        overflow: hidden;
+        background: radial-gradient(
+          circle at top,
+          #40104f,
+          #160019 45%,
+          #080009
+        );
+        color: white;
+      }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
+      /* =========================
+           Background
+        ========================= */
 
-    .brand h1 {
-      font-size: 2.8rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #f6e27a, #d4af37, #f6e27a);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      letter-spacing: -1px;
-      text-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
-    }
+      .background {
+        position: fixed;
+        inset: 0;
+        overflow: hidden;
+        z-index: -1;
+      }
 
-    .brand i {
-      font-size: 2.5rem;
-      color: #d4af37;
-      filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.3));
-    }
+      .heart {
+        position: absolute;
+        color: rgba(255, 105, 180, 0.35);
+        font-size: 20px;
+        animation: float 8s linear infinite;
+      }
 
-    .cart-gold {
-      background: rgba(212, 175, 55, 0.12);
-      border: 1px solid rgba(212, 175, 55, 0.25);
-      padding: 0.8rem 1.8rem;
-      border-radius: 60px;
-      color: #f6e27a;
-      font-size: 1.3rem;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      backdrop-filter: blur(4px);
-      transition: 0.3s;
-    }
+      @keyframes float {
+        0% {
+          transform: translateY(110vh) scale(0.5) rotate(0deg);
+          opacity: 0;
+        }
 
-    .cart-gold:hover {
-      background: rgba(212, 175, 55, 0.2);
-      transform: scale(1.02);
-      box-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
-    }
+        20% {
+          opacity: 1;
+        }
 
-    .badge-gold {
-      background: #d4af37;
-      color: #0b0f1a;
-      font-weight: 700;
-      padding: 0.1rem 0.8rem;
-      border-radius: 40px;
-      font-size: 0.9rem;
-    }
+        100% {
+          transform: translateY(-10vh) scale(1.3) rotate(360deg);
+          opacity: 0;
+        }
+      }
 
-    /* سرچ شیشه‌ای */
-    .search-glass {
-      display: flex;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 80px;
-      padding: 0.2rem 0.2rem 0.2rem 1.8rem;
-      align-items: center;
-      margin: 2rem 0 2.5rem;
-      backdrop-filter: blur(8px);
-      transition: 0.3s;
-    }
+      /* =========================
+           Intro
+        ========================= */
 
-    .search-glass:focus-within {
-      border-color: rgba(212, 175, 55, 0.3);
-      box-shadow: 0 0 30px rgba(212, 175, 55, 0.03);
-      background: rgba(255, 255, 255, 0.07);
-    }
+      .intro {
+        width: 100%;
+        height: 100vh;
 
-    .search-glass input {
-      background: transparent;
-      border: none;
-      padding: 0.9rem 0.2rem;
-      width: 100%;
-      color: #e8e6f0;
-      font-size: 1rem;
-      outline: none;
-    }
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-    .search-glass input::placeholder {
-      color: rgba(255, 255, 255, 0.3);
-      font-weight: 300;
-    }
+        padding: 20px;
 
-    .search-glass button {
-      background: linear-gradient(135deg, #d4af37, #b8962c);
-      border: none;
-      color: #0b0f1a;
-      padding: 0.7rem 2rem;
-      border-radius: 60px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+        transition: 0.8s;
+      }
 
-    .search-glass button:hover {
-      transform: scale(0.96);
-      box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
-    }
+      .intro-box {
+        width: min(500px, 100%);
+        text-align: center;
 
-    /* فیلترهای شیشه‌ای */
-    .filter-lux {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem 1.2rem;
-      margin-bottom: 2.8rem;
-    }
-    .filter-lux button {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      padding: 0.6rem 1.8rem;
-      border-radius: 60px;
-      color: #b8bdd0;
-      font-weight: 500;
-      font-size: 0.9rem;
-      backdrop-filter: blur(4px);
-      cursor: pointer;
-      transition: 0.2s;
-    }
+        padding: 50px 25px;
 
-    .filter-lux button.active {
-      background: rgba(212, 175, 55, 0.15);
-      border-color: #d4af37;
-      color: #f6e27a;
-      box-shadow: 0 0 25px rgba(212, 175, 55, 0.05);
-    }
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 30px;
 
-    .filter-lux button:hover {
-      background: rgba(255, 255, 255, 0.06);
-      color: #fff;
-    }
+        background: rgba(255, 255, 255, 0.07);
+        backdrop-filter: blur(20px);
 
-    /* گرید محصولات لوکس */
-    .product-grid-lux {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 2rem;
-      margin: 1.5rem 0 3rem;
-    }
+        box-shadow:
+          0 30px 80px rgba(0, 0, 0, 0.5),
+          inset 0 0 30px rgba(255, 255, 255, 0.03);
+      }
 
-    .card-lux {
-      background: rgba(255, 255, 255, 0.02);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      border-radius: 2.5rem;
-      padding: 1.8rem 1rem 1.5rem;
-      text-align: center;
-      transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.3);
-    }
+      .gift {
+        font-size: 80px;
+        animation: gift 2s ease-in-out infinite;
+      }
 
-    .card-lux:hover {
-      transform: translateY(-12px) scale(1.01);
-      border-color: rgba(212, 175, 55, 0.2);
-      background: rgba(255, 255, 255, 0.05);
-      box-shadow: 0 30px 50px -15px rgba(0,0,0,0.6), 0 0 40px rgba(212, 175, 55, 0.02);
-    }
+      @keyframes gift {
+        0%,
+        100% {
+          transform: rotate(-5deg) scale(1);
+        }
 
-    .card-lux .emoji-big {
-      font-size: 4.5rem;
-      margin-bottom: 0.2rem;
-      filter: drop-shadow(0 8px 12px rgba(0,0,0,0.3));
-    }
+        50% {
+          transform: rotate(5deg) scale(1.08);
+        }
+      }
 
-    .card-lux h3 {
-      color: #f0edf7;
-      font-weight: 600;
-      font-size: 1.2rem;
-      margin: 0.6rem 0 0.1rem;
-    }
+      .intro h1 {
+        margin-top: 20px;
+        font-size: 32px;
+      }
 
-    .card-lux .desc {
-      color: #8b8fa8;
-      font-size: 0.8rem;
-      opacity: 0.7;
-    }
+      .intro p {
+        margin-top: 15px;
+        color: #ddd;
+        line-height: 2;
+      }
 
-    .card-lux .price-gold {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #d4af37;
-      margin: 0.5rem 0 0.9rem;
-      letter-spacing: 0.5px;
-    }
+      .open-btn {
+        margin-top: 30px;
 
-    .card-lux .price-gold small {
-      font-size: 0.7rem;
-      color: #8b8fa8;
-      font-weight: 300;
-    }
+        border: none;
+        cursor: pointer;
 
-    .btn-gold {
-      background: linear-gradient(135deg, #d4af37, #b8962c);
-      border: none;
-      padding: 0.6rem 1.2rem;
-      border-radius: 60px;
-      font-weight: 700;
-      color: #0b0f1a;
-      width: 100%;
-      max-width: 150px;
-      cursor: pointer;
-      transition: 0.25s;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-      font-size: 0.85rem;
-    }
+        padding: 15px 35px;
 
-    .btn-gold:hover {
-      transform: scale(0.94);
-      box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
-    }
+        border-radius: 50px;
 
-    /* سبد خرید طلایی */
-    .cart-lux {
-      margin-top: 2.5rem;
-      background: rgba(255, 255, 255, 0.02);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      border-radius: 3rem;
-      padding: 1.5rem 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1.2rem;
-    }
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
 
-    .cart-lux-items {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.8rem 1.2rem;
-      flex: 2;
-    }
+        background: linear-gradient(135deg, #ff4fa3, #9d35ff);
 
-    .cart-lux-item {
-      background: rgba(212, 175, 55, 0.08);
-      border: 1px solid rgba(212, 175, 55, 0.08);
-      padding: 0.3rem 1rem 0.3rem 0.8rem;
-      border-radius: 60px;
-      color: #e0dccf;
-      font-size: 0.85rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
+        box-shadow: 0 10px 35px rgba(255, 50, 170, 0.35);
 
-    .cart-lux-item i {
-      color: #d4af37;
-      cursor: pointer;
-      transition: 0.2s;
-    }
+        transition: 0.3s;
+      }
 
-    .cart-lux-item i:hover {
-      color: #ffd966;
-      transform: scale(1.3);
-    }
+      .open-btn:hover {
+        transform: translateY(-4px) scale(1.03);
+        box-shadow: 0 15px 45px rgba(255, 50, 170, 0.5);
+      }
 
-    .total-gold {
-      background: rgba(212, 175, 55, 0.08);
-      padding: 0.4rem 1.8rem;
-      border-radius: 60px;
-      color: #f6e27a;
-      font-weight: 700;
-      font-size: 1.2rem;
-      border: 1px solid rgba(212, 175, 55, 0.1);
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-    .btn-clear-gold {
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      padding: 0.4rem 1.4rem;
-      border-radius: 60px;
-      color: #a8adc5;
-      font-weight: 500;
-      cursor: pointer;
-      transition: 0.2s;
-    }
+      /* =========================
+           Main
+        ========================= */
 
-    .btn-clear-gold:hover {
-      background: rgba(255, 50, 50, 0.05);
-      border-color: rgba(255, 80, 80, 0.15);
-      color: #ffb3b3;
-    }
+      .main {
+        position: absolute;
+        inset: 0;
 
-    .empty-lux {
-      color: #6a708a;
-      font-weight: 300;
-    }
+        display: none;
 
-    /* محصول ویژه */
-    .featured-badge {
-      background: rgba(212, 175, 55, 0.15);
-      border: 1px solid #d4af37;
-      padding: 0.2rem 1rem;
-      border-radius: 40px;
-      color: #d4af37;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      display: inline-block;
-      margin-bottom: 0.3rem;
-    }
+        overflow-y: auto;
 
-    @media (max-width: 600px) {
-      .glass-container { padding: 1.5rem; }
-      .brand h1 { font-size: 2rem; }
-      .product-grid-lux { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
-    }
-  </style>
-</head>
-<body>
-<div class="glass-container">
-  <!-- هدر طلایی -->
-  <div class="gold-header">
-    <div class="brand">
-      <i class="fas fa-crown"></i>
-      <h1>شاپ خفن</h1>
-    </div>
-    <div class="cart-gold">
-      <i class="fas fa-shopping-bag"></i>
-      <span class="badge-gold">۳</span>
-    </div>
-  </div>
+        padding: 60px 20px;
+      }
 
-  <!-- سرچ -->
-  <div class="search-glass">
-    <input type="text" placeholder="دنبال چی میگردی؟">
-    <button><i class="fas fa-search"></i> پیدا کن</button>
-  </div>
+      .main.show {
+        display: block;
+        animation: appear 1s ease;
+      }
 
-  <!-- فیلترها -->
-  <div class="filter-lux">
-    <button class="active">همه</button>
-    <button>📱 گوشی</button>
-    <button>💻 لپ‌تاپ</button>
-    <button>🎧 هدفون</button>
-    <button>⌚ ساعت</button>
-  </div>
+      @keyframes appear {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
 
-  <!-- محصولات -->
-  <div class="product-grid-lux">
-    <!-- محصول ۱ -->
-    <div class="card-lux">
-      <div class="emoji-big">📱</div>
-      <h3>آیفون ۱۶ پرو مکس</h3>
-      <div class="desc">تراشه A18</div>
-      <div class="price-gold">۵۸,۰۰۰,۰۰۰ <small>تومان</small></div>
-      <button class="btn-gold"><i class="fas fa-plus-circle"></i> افزودن</button>
-    </div>
-    <!-- محصول ۲ -->
-    <div class="card-lux">
-      <div class="emoji-big">📱</div>
-      <h3>سامسونگ گلکسی S25</h3>
-      <div class="desc">دوربین ۲۵۰ مگ</div>
-      <div class="price-gold">۴۲,۰۰۰,۰۰۰ <small>تومان</small></div>
-      <button class="btn-gold"><i class="fas fa-plus-circle"></i> افزودن</button>
-    </div>
-    <!-- محصول ۳ -->
-    <div class="card-lux">
-      <div class="emoji-big">💻</div>
-      <h3>مک بوک ایر M4</h3>
-      <div class="desc">فوق باریک</div>
-      <div class="price-gold">۹۵,۰۰۰,۰۰۰ <small>تومان</small></div>
-      <button class="btn-gold"><i class="fas fa-plus-circle"></i> افزودن</button>
-    </div>
-    <!-- محصول ۴ -->
-    <div class="card-lux">
-      <div class="emoji-big">💻</div>
-      <h3>راگ لپ‌تاپ گیمینگ</h3>
-      <div class="desc">RTX 5090</div>
-      <div class="price-gold">۱۲۰,۰۰۰,۰۰۰ <small>تومان</small></div>
-      <button class="btn-gold"><i class="fas fa-plus-circle"></i> افزودن</button>
-    </div>
-    <!-- محصول ۵ -->
-    <div class="card-lux">
-      <div class="emoji-big">🎧</div>
-      <h3>سونی WH-1000XM6</h3>
-      <div class="desc">حذف نویز پیشرفته</div>
-      <div class="price-gold">۲۲,۰۰۰,۰۰۰ <small>تومان</small></div>
-      <button class="btn-gold"><i class="fas fa-plus-circle"></i> افزودن</button>
-    </div>
-    <!-- محصول ۶ -->
-    <div class="card-lux">
-      <div class="emoji-big">🎧</div>
-      <h3>بیس مدل بوست</h3>
-      <div class="desc">بیس کوبنده</div>
-      <div class="price-gold">۱۶,۵۰۰,۰۰۰ <small>تومان</small></div>
-      <button class="btn-gold"><i class="fas fa-plus-circle"></i> افزودن</button>
-    </div>
-    <!-- محصول ۷ -->
-    <div class="card-lux">
-      <div class="emoji-big">⌚</div>
-      <h3>اپل واچ اولترا ۲</h3>
-      <div class="desc">تیتانیوم مشکی</div>
-      <div class="price-gold">۴۳,۰۰۰,۰۰۰ <small>تومان</small></div>
-      <button class="btn-gold"><i class="fas fa-plus-circle"></i> افزودن</button>
-    </div>
-    <!-- محصول ۸ -->
-    <div class="card-lux">
-      <div class="emoji-big">⌚</div>
-      <h3>گارمین فنیکس ۸</h3>
-      <div class="desc">نقشه‌برداری ماهواره</div>
-      <div class="price-gold">۳۲,۰۰۰,۰۰۰ <small>تومان</small></div>
-      <button class="btn-gold"><i class="fas fa-plus-circle"></i> افزودن</button>
-    </div>
-  </div>
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
 
-  <!-- سبد خرید -->
-  <div class="cart-lux">
-    <div class="cart-lux-items">
-      <span class="cart-lux-item">📱 آیفون ۱۶ (۲) <i class="fas fa-times-circle"></i></span>
-      <span class="cart-lux-item">💻 مک بوک ایر (۱) <i class="fas fa-times-circle"></i></span>
-    </div>
-    <div style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
-      <div class="total-gold"><i class="fas fa-coins"></i> ۱۵۳,۰۰۰,۰۰۰</div>
-      <button class="btn-clear-gold"><i class="fas fa-trash-alt"></i> خالی</button>
-    </div>
-  </div>
-</div>
-</body>
+      .container {
+        max-width: 800px;
+        margin: auto;
+        text-align: center;
+      }
+      .small-title {
+        color: #ff8acb;
+        letter-spacing: 3px;
+        font-size: 14px;
+      }
+
+      .main h1 {
+        margin-top: 15px;
+        font-size: clamp(42px, 9vw, 80px);
+
+        background: linear-gradient(90deg, #ff75bc, #fff, #c06cff);
+
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+
+      .birthday {
+        margin-top: 15px;
+        font-size: 20px;
+        color: #eee;
+      }
+
+      /* =========================
+           Card
+        ========================= */
+
+      .message-card {
+        margin-top: 50px;
+
+        padding: 35px 25px;
+
+        border-radius: 30px;
+
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+
+        backdrop-filter: blur(20px);
+
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+      }
+
+      .message-card .emoji {
+        font-size: 45px;
+      }
+
+      .message-card p {
+        margin-top: 20px;
+
+        line-height: 2.3;
+
+        color: #eee;
+
+        font-size: 17px;
+      }
+
+      .highlight {
+        color: #ff82c7;
+        font-weight: bold;
+      }
+
+      /* =========================
+           Memories
+        ========================= */
+
+      .memories {
+        margin-top: 40px;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 15px;
+      }
+
+      .memory {
+        padding: 25px 10px;
+
+        border-radius: 20px;
+
+        background: rgba(255, 255, 255, 0.06);
+
+        border: 1px solid rgba(255, 255, 255, 0.08);
+
+        transition: 0.3s;
+      }
+
+      .memory:hover {
+        transform: translateY(-7px);
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .memory span {
+        font-size: 30px;
+      }
+
+      .memory h3 {
+        margin-top: 10px;
+        font-size: 15px;
+      }
+
+      .memory p {
+        margin-top: 7px;
+        color: #aaa;
+        font-size: 12px;
+      }
+
+      /* =========================
+           Final
+        ========================= */
+
+      .final {
+        margin-top: 50px;
+        padding-bottom: 40px;
+      }
+
+      .final h2 {
+        font-size: 27px;
+      }
+
+      .final p {
+        margin-top: 15px;
+        color: #aaa;
+      }
+
+      .signature {
+        margin-top: 25px;
+        color: #ff82c7;
+        font-size: 20px;
+      }
+
+      /* =========================
+           Confetti
+        ========================= */
+
+      .confetti {
+        position: fixed;
+        width: 8px;
+        height: 8px;
+
+        top: -20px;
+
+        animation: confetti 4s linear forwards;
+      }
+
+      @keyframes confetti {
+        to {
+          transform: translateY(110vh) rotate(720deg);
+
+          opacity: 0;
+        }
+      }
+
+      /* =========================
+           Mobile
+        ========================= */
+
+      @media (max-width: 600px) {
+        .intro-box {
+          padding: 40px 20px;
+        }
+
+        .intro h1 {
+          font-size: 26px;
+        }
+
+        .memories {
+          grid-template-columns: 1fr;
+        }
+
+        .main {
+          padding: 40px 15px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Background -->
+    <div class="background" id="background"></div>
+
+    <!-- =========================
+         INTRO
+    ========================== -->
+
+    <section class="intro" id="intro">
+      <div class="intro-box">
+        <div class="gift">🎁</div>
+
+        <h1>یه چیزی برای نازنینه...</h1>
+        <p>
+          این صفحه معمولی نیست...
+          <br />
+          برای یه آدم خاص درست شده ❤️
+        </p>
+        <button class="open-btn" onclick="openGift()">بازش کن 🎀</button>
+      </div>
+    </section>
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="main" id="main">
+      <div class="container">
+        <div class="small-title">HAPPY BIRTHDAY</div>
+
+        <h1>نازنین</h1>
+
+        <div class="birthday">تولدت مبارک دختر خاص ❤️</div>
+
+        <!-- Message -->
+
+        <div class="message-card">
+          <div class="emoji">💌</div>
+
+          <p>
+            شاید مدت زیادی نیست که با هم آشنا شدیم، اما بعضی آدم‌ها برای خاص شدن
+            به زمان زیادی احتیاج ندارن.
+          </p>
+
+          <p>
+            امیدوارم سال جدید زندگیت پر باشه از
+            <span class="highlight"> اتفاق‌های قشنگ، </span>
+            خنده‌های واقعی و آدم‌هایی که قدر بودنت رو بدونن.
+          </p>
+
+          <p>
+            و امروز فقط می‌خواستم بدونی که
+            <span class="highlight"> تولدت برای منم مهمه ❤️ </span>
+          </p>
+        </div>
+
+        <!-- Memories -->
+
+        <div class="memories">
+          <div class="memory">
+            <span>🌸</span>
+
+            <h3>یه سال قشنگ</h3>
+
+            <p>پر از لحظه‌های خوب</p>
+          </div>
+
+          <div class="memory">
+            <span>✨</span>
+
+            <h3>کلی آرزوی خوب</h3>
+
+            <p>برای روزهای آینده</p>
+          </div>
+
+          <div class="memory">
+            <span>❤️</span>
+
+            <h3>کلی لبخند</h3>
+
+            <p>چون لایق بهترین‌هایی</p>
+          </div>
+        </div>
+
+        <!-- Final -->
+
+        <div class="final">
+          <h2>دوباره تولدت مبارک 🎂</h2>
+
+          <p>
+            امیدوارم وقتی این صفحه رو دیدی، حداقل یه لبخند روی لبت اومده باشه :)
+          </p>
+
+          <div class="signature">برای نازنینه، با کلی حس خوب ❤️</div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      /* =========================
+           Floating Hearts
+        ========================== */
+
+      const background = document.getElementById("background");
+
+      function createHeart() {
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        heart.innerHTML = Math.random() > 0.5 ? "♥" : "♡";
+
+        heart.style.left = Math.random() * 100 + "%";
+
+        heart.style.fontSize = 15 + Math.random() * 25 + "px";
+
+        heart.style.animationDuration = 5 + Math.random() * 6 + "s";
+
+        heart.style.animationDelay = Math.random() * 5 + "s";
+
+        background.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 12000);
+      }
+
+      setInterval(createHeart, 500);
+
+      /* =========================
+           Open Gift
+        ========================== */
+
+      function openGift() {
+        const intro = document.getElementById("intro");
+
+        const main = document.getElementById("main");
+
+        intro.style.opacity = "0";
+        setTimeout(() => {
+          intro.style.display = "none";
+
+          main.classList.add("show");
+
+          createConfetti();
+        }, 700);
+      }
+
+      /* =========================
+           Confetti
+        ========================== */
+
+      function createConfetti() {
+        const symbols = ["❤️", "✨", "💖", "🌸", "🎀", "⭐"];
+
+        for (let i = 0; i < 70; i++) {
+          const item = document.createElement("div");
+
+          item.className = "confetti";
+
+          item.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+
+          item.style.left = Math.random() * 100 + "vw";
+
+          item.style.animationDuration = 2 + Math.random() * 3 + "s";
+
+          item.style.animationDelay = Math.random() * 1.5 + "s";
+
+          document.body.appendChild(item);
+
+          setTimeout(() => {
+            item.remove();
+          }, 6000);
+        }
+      }
+    </script>
+  </body>
 </html>
